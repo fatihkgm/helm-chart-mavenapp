@@ -3,7 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: petclinic-deployment
+  name: awsproject-deployment
 spec:
   replicas: 1
   strategy:
@@ -15,14 +15,14 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: petclinic-app
+      app: awsproject-app
   template:
     metadata:
       labels:
-        app: petclinic-app
+        app: awsproject-app
     spec:
       containers:
-      - name: petclinic-container
+      - name: awsproject-container
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: Always
         resources:
