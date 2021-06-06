@@ -3,12 +3,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: aws-project-service
+  name: petclinic-service
   labels:
-    app: aws-project-app
+    app: petclinic-app
 spec:
   selector:
-    app: aws-project-app
+    app: petclinic-app
   type: LoadBalancer
   ports:
   - nodePort: 32750

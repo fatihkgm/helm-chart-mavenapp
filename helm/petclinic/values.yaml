@@ -1,11 +1,11 @@
-# Default values for aws.
+# Default values for petclinic.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: prawinkorvi/awsimage
+  repository: prawinkorvi/petclinicimage
   tag: latest
   pullPolicy: IfNotPresent
 
