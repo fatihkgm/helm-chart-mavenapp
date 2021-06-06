@@ -1,0 +1,41 @@
+#Deployment
+###controllers/pb-deploy.tml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: aws-deployment
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+    maxSurge: 0
+    maxUnavailable: 1
+  minReadySeconds: 5
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: aws-app
+  template:
+    metadata:
+      labels:
+        app: aws-app
+    spec:
+      containers:
+      - name: aws-container
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        rresources:
+          limits:
+            cpu: '300m'
+            memory: '528Mi'
+          requests:
+            cpu: '300m'
+            memory: '428Mi'
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
+
+
+

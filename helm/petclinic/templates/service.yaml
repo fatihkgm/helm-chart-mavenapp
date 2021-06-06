@@ -1,0 +1,16 @@
+# Service - LoadBalancer
+# # pb-service -lb.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: aws-service
+  labels:
+    app: aws-app
+spec:
+  selector:
+    app: aws-app
+  type: LoadBalancer
+  ports:
+  - nodePort: 32750
+    port: 8080
+    targetPort: 8080
