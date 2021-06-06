@@ -1,14 +1,14 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: aws-mem-hpa
+  name: aws-project-mem-hpa
 spec:
   maxReplicas: 5
   minReplicas: 1
   scaleTargetRef:
     apiVersion: extensions/v1beta1
     kind: Deployment
-    name: aws-deployment
+    name: aws-project-deployment
   metrics:
   - type: Resource
     resource:

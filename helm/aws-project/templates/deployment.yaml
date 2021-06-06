@@ -3,7 +3,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: aws-deployment
+  name: aws-project-deployment
 spec:
   replicas: 1
   strategy:
@@ -15,14 +15,14 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: aws-app
+      app: aws-project-app
   template:
     metadata:
       labels:
-        app: aws-app
+        app: aws-project-app
     spec:
       containers:
-      - name: aws-container
+      - name: aws-project-container
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: Always
         rresources:
